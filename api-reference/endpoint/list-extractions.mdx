@@ -1,0 +1,149 @@
+---
+title: 'List Extractions'
+description: 'Get a list of all data extractions'
+---
+
+# List Extractions
+
+Get a paginated list of all data extractions in your account.
+
+## API Request
+
+```bash
+GET https://withflora.io/v1/extractions
+```
+
+## Headers
+
+<ParamField header="Authorization" required>
+  Bearer YOUR_FLORA_API_KEY
+</ParamField>
+
+## Query Parameters
+
+<ParamField query="page" type="integer">
+  Page number for pagination
+</ParamField>
+
+<ParamField query="perPage" type="integer">
+  Number of items per page
+</ParamField>
+
+## Response
+
+<ResponseField name="status" type="boolean">
+  Indicates if the request was successful
+</ResponseField>
+
+<ResponseField name="message" type="string">
+  A message describing the result
+</ResponseField>
+
+<ResponseField name="data" type="object">
+  <Expandable title="properties">
+    <ResponseField name="data" type="array">
+      Array of extraction objects
+      <Expandable title="Extraction Object">
+        <ResponseField name="id" type="string">
+          Unique identifier for the extraction
+        </ResponseField>
+        <ResponseField name="charged" type="boolean">
+          Whether the extraction was charged
+        </ResponseField>
+        <ResponseField name="createdAt" type="string">
+          Timestamp when the extraction was created
+        </ResponseField>
+        <ResponseField name="input" type="object">
+          <Expandable title="properties">
+            <ResponseField name="instruction" type="string">
+              The instruction for the extraction
+            </ResponseField>
+            <ResponseField name="model" type="string">
+              The AI model used for extraction
+            </ResponseField>
+            <ResponseField name="schema_id" type="string">
+              ID of the schema used for extraction
+            </ResponseField>
+            <ResponseField name="source" type="string">
+              Source of the content to extract from
+            </ResponseField>
+            <ResponseField name="type" type="string">
+              Type of the source content (e.g., "image", "text")
+            </ResponseField>
+          </Expandable>
+        </ResponseField>
+        <ResponseField name="output" type="object">
+          The extracted data matching the schema structure
+        </ResponseField>
+        <ResponseField name="status" type="string">
+          Status of the extraction (e.g., "completed")
+        </ResponseField>
+        <ResponseField name="totalTokens" type="string">
+          Total tokens used in the extraction
+        </ResponseField>
+      </Expandable>
+    </ResponseField>
+    <ResponseField name="meta" type="object">
+      <Expandable title="properties">
+        <ResponseField name="total" type="integer">Total number of items</ResponseField>
+        <ResponseField name="perPage" type="integer">Items per page</ResponseField>
+        <ResponseField name="currentPage" type="integer">Current page number</ResponseField>
+        <ResponseField name="lastPage" type="integer">Last page number</ResponseField>
+        <ResponseField name="firstPage" type="integer">First page number</ResponseField>
+      </Expandable>
+    </ResponseField>
+  </Expandable>
+</ResponseField>
+
+<RequestExample>
+```bash
+curl --request GET \
+  --url 'https://withflora.io/v1/extractions?page=1&perPage=10' \
+  --header 'Authorization: Bearer YOUR_FLORA_API_KEY'
+```
+</RequestExample>
+
+<ResponseExample>
+```json
+{
+  "status": true,
+  "message": "Extractions retrieved successfully",
+  "data": {
+    "data": [
+      {
+        "id": "4a81beae-3737-4a49-aa4d-466011527a6e",
+        "charged": true,
+        "createdAt": "2025-03-20T16:15:50.438+00:00",
+        "input": {
+          "instruction": "Extract the top 10 articles, along with their summary",
+          "model": "gpt-4o-search-preview",
+          "schema_id": "ec9cb821-6f69-4605-a7fc-0858667eb534",
+          "source": "f98.jpg",
+          "type": "image"
+        },
+        "output": [
+          {
+            "link": "https://techcrunch.com/2025/04/25/michael-seibel-leaving-y-combinator",
+            "summary": "Michael Seibel is departing from Y Combinator after years of service.",
+            "title": "Michael Seibel is leaving Y Combinator"
+          }
+        ],
+        "status": "completed",
+        "totalTokens": "27689"
+      }
+    ],
+    "meta": {
+      "total": 8,
+      "perPage": 10,
+      "currentPage": 1,
+      "lastPage": 1,
+      "firstPage": 1,
+      "firstPageUrl": "/?page=1",
+      "lastPageUrl": "/?page=1",
+      "nextPageUrl": null,
+      "previousPageUrl": null
+    }
+  }
+}
+```
+</ResponseExample>

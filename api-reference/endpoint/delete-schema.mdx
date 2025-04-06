@@ -1,0 +1,58 @@
+---
+title: 'Delete Schema'
+description: 'Delete an existing schema'
+---
+
+# Delete Schema
+
+Delete a schema by its ID. This action cannot be undone.
+
+## API Request
+
+```bash
+DELETE https://withflora.io/v1/schemas/{id}
+```
+
+## Headers
+
+<ParamField header="Authorization" required>
+  Bearer YOUR_FLORA_API_KEY
+</ParamField>
+
+## Path Parameters
+
+<ParamField path="id" type="string" required>
+  The unique identifier of the schema to delete
+</ParamField>
+
+## Response
+
+<ResponseField name="status" type="boolean">
+  Indicates if the request was successful
+</ResponseField>
+
+<ResponseField name="message" type="string">
+  A message describing the result
+</ResponseField>
+
+<ResponseField name="data" type="object">
+  Empty object indicating successful deletion
+</ResponseField>
+
+<RequestExample>
+```bash
+curl --request DELETE \
+  --url 'https://withflora.io/v1/schemas/c622793c-5e69-4670-bfa5-6e57b6fcbc74' \
+  --header 'Authorization: Bearer YOUR_FLORA_API_KEY'
+```
+</RequestExample>
+
+<ResponseExample>
+```json
+{
+  "status": true,
+  "message": "Schema deleted successfully",
+  "data": {}
+}
+```
+</ResponseExample>
