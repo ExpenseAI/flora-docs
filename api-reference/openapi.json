@@ -31,70 +31,7 @@
                     "example": "News Articles"
                   },
                   "structure": {
-                    "type": "object",
-                    "properties": {
-                      "items": {
-                        "type": "object",
-                        "properties": {
-                          "properties": {
-                            "type": "object",
-                            "properties": {
-                              "link": {
-                                "type": "object",
-                                "properties": {
-                                  "describe": {
-                                    "type": "string",
-                                    "example": "URL to learn more"
-                                  },
-                                  "type": {
-                                    "type": "string",
-                                    "example": "string"
-                                  }
-                                }
-                              },
-                              "summary": {
-                                "type": "object",
-                                "properties": {
-                                  "describe": {
-                                    "type": "string",
-                                    "example": "The news summary"
-                                  },
-                                  "type": {
-                                    "type": "string",
-                                    "example": "string"
-                                  }
-                                }
-                              },
-                              "title": {
-                                "type": "object",
-                                "properties": {
-                                  "describe": {
-                                    "type": "string",
-                                    "example": "The article title"
-                                  },
-                                  "type": {
-                                    "type": "string",
-                                    "example": "string"
-                                  }
-                                }
-                              }
-                            }
-                          },
-                          "type": {
-                            "type": "string",
-                            "example": "object"
-                          }
-                        }
-                      },
-                      "required": {
-                        "type": "boolean",
-                        "example": true
-                      },
-                      "type": {
-                        "type": "string",
-                        "example": "array"
-                      }
-                    }
+                    "type": "object"
                   }
                 }
               },
@@ -2135,36 +2072,6 @@
                               "totalTokens": "27689"
                             },
                             {
-                              "charged": false,
-                              "createdAt": "2025-03-20T15:53:50.107+00:00",
-                              "id": "c365b0d8-7301-457e-aae9-ec19ee21863d",
-                              "input": {
-                                "instruction": "Extact the top 10 articles",
-                                "model": "gpt-4o-search-preview",
-                                "schema_id": "00f9190e-9a4a-4e08-ba00-f888437ed3c4",
-                                "source": "https://techcrunch.com",
-                                "type": "webpage"
-                              },
-                              "output": null,
-                              "status": "failed",
-                              "totalTokens": "0"
-                            },
-                            {
-                              "charged": false,
-                              "createdAt": "2025-03-20T15:52:20.476+00:00",
-                              "id": "1618dadb-2515-4345-8e82-10fade5c9a86",
-                              "input": {
-                                "instruction": "Extact the top 10 articles",
-                                "model": "gpt-4o-mini-search-preview",
-                                "schema_id": "00f9190e-9a4a-4e08-ba00-f888437ed3c4",
-                                "source": "https://techcrunch.com",
-                                "type": "webpage"
-                              },
-                              "output": null,
-                              "status": "failed",
-                              "totalTokens": "0"
-                            },
-                            {
                               "charged": true,
                               "createdAt": "2025-03-20T15:47:54.831+00:00",
                               "id": "cfb09fb3-d98a-4e65-bf8b-9e962593617f",
@@ -2647,36 +2554,6 @@
                             ],
                             "status": "completed",
                             "totalTokens": "27689"
-                          },
-                          {
-                            "charged": false,
-                            "createdAt": "2025-03-20T15:53:50.107+00:00",
-                            "id": "c365b0d8-7301-457e-aae9-ec19ee21863d",
-                            "input": {
-                              "instruction": "Extact the top 10 articles",
-                              "model": "gpt-4o-search-preview",
-                              "schema_id": "00f9190e-9a4a-4e08-ba00-f888437ed3c4",
-                              "source": "https://techcrunch.com",
-                              "type": "webpage"
-                            },
-                            "output": null,
-                            "status": "failed",
-                            "totalTokens": "0"
-                          },
-                          {
-                            "charged": false,
-                            "createdAt": "2025-03-20T15:52:20.476+00:00",
-                            "id": "1618dadb-2515-4345-8e82-10fade5c9a86",
-                            "input": {
-                              "instruction": "Extact the top 10 articles",
-                              "model": "gpt-4o-mini-search-preview",
-                              "schema_id": "00f9190e-9a4a-4e08-ba00-f888437ed3c4",
-                              "source": "https://techcrunch.com",
-                              "type": "webpage"
-                            },
-                            "output": null,
-                            "status": "failed",
-                            "totalTokens": "0"
                           },
                           {
                             "charged": true,

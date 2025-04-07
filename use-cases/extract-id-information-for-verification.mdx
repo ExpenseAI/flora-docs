@@ -1,0 +1,147 @@
+---
+title: Extract ID Information for Verification
+description: "Learn how to use Flora API to extract and verify information from ID documents"
+icon: "shield-check"
+---
+
+# Automating ID Information Extraction with Flora
+
+In today's digital age, verifying identity documents quickly and accurately is crucial for many businesses. Whether it's for KYC (Know Your Customer) processes, onboarding new employees, or validating user accounts, manual verification can be time-consuming and error-prone. This is where Flora comes in.
+
+## The Problem
+
+Manually extracting information from ID documents like driver's licenses is:
+
+- Time-consuming
+- Prone to human error
+- Difficult to scale
+
+## The Solution: Flora API
+
+Flora offers a powerful API that can automatically extract information from ID documents, making the verification process faster, more accurate, and scalable.
+
+### How It Works
+
+1. **Create a Schema**: Define the structure of the data you expect to extract.
+2. **Submit the ID Document**: Send the image URL of the ID to Flora's API.
+3. **Receive Structured Data**: Get back neatly organized, machine-readable data.
+
+Let's walk through an example using a driver's license.
+
+## Example: Extracting Information from a Driver's License
+
+Here's a sample driver's license we'll be working with:
+
+<img
+  style={{ borderRadius: "0.5rem" }}
+  src="https://firebasestorage.googleapis.com/v0/b/kruise-ec380.appspot.com/o/Californian_sample_driver's_license%2C_c._2019.jpg?alt=media&token=ac1288d3-ef6e-4d0a-bfcf-814fbdb65664"
+/>
+Sample Driver's License document from [Wikimedia](https://commons.wikimedia.org/wiki/File:Californian_sample_driver%27s_license,_c._2019.jpg)
+
+### Step 1: Create the Schema
+
+First, we define the structure of the data we want to extract by calling the `/v1/schemas` endpoint:
+
+```json Driver's License Schema [expandable]
+{
+  "type": "object",
+  "properties": {
+    "sex": {
+      "type": "string",
+      "describe": "e.g. male or female",
+      "required": true
+    },
+    "class": {
+      "type": "string"
+    },
+    "height": {
+      "type": "string"
+    },
+    "weight": {
+      "type": "string"
+    },
+    "address": {
+      "type": "string",
+      "required": true
+    },
+    "is_donor": {
+      "type": "boolean"
+    },
+    "eye_color": {
+      "type": "string"
+    },
+    "last_name": {
+      "type": "string",
+      "required": true
+    },
+    "first_name": {
+      "type": "string",
+      "required": true
+    },
+    "is_veteran": {
+      "type": "boolean"
+    },
+    "issue_date": {
+      "type": "string"
+    },
+    "endorsements": {
+      "type": "string"
+    },
+    "restrictions": {
+      "type": "string"
+    },
+    "date_of_birth": {
+      "type": "date",
+      "describe": "e.g. DD/MM/YYYY",
+      "required": true
+    },
+    "expiration_date": {
+      "type": "string"
+    },
+    "document_discriminator": {
+      "type": "string"
+    },
+    "drivers_license_number": {
+      "type": "string"
+    }
+  }
+}
+```
+
+### Step 2: Call the Flora API
+
+Next, we use the Flora API to extract the information from the image by calling the `/v1/extractions` endpoint, passing the schema ID and the image URL.
+
+### Step 3: Receive Structured Data
+
+The API returns the extracted information in the expected format:
+
+```json Driver's License Extracted Data [expandable]
+{
+  "sex": "F",
+  "class": "C",
+  "height": "5'-05\"",
+  "weight": "125 lb",
+  "address": "2570 24TH STREET ANYTOWN, CA 95818",
+  "is_donor": true,
+  "eye_color": "BRN",
+  "last_name": "CARDHOLDER",
+  "first_name": "IMA",
+  "is_veteran": true,
+  "issue_date": "08/31/2009",
+  "endorsements": "NONE",
+  "restrictions": "NONE",
+  "date_of_birth": "08/31/1977",
+  "expiration_date": "08/31/2014",
+  "document_discriminator": "00/00/0000NNAN/ANFD/YY",
+  "drivers_license_number": "I1234568"
+}
+```
+
+As you can see, the extracted information is in the expected format. We can now use this information to verify the identity of the driver programmatically.
+
+## Conclusion
+
+Flora's API simplifies the process of extracting information from ID documents, making it easy to automate identity verification processes. This can significantly reduce processing times, minimize errors, and improve the overall efficiency of your operations.
+
+Ready to streamline your ID verification process? Head over to [https://withflora.io/](https://withflora.io/) to get started. We can't wait to see what you build with Flora!

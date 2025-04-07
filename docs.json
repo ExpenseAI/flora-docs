@@ -30,12 +30,9 @@
           {
             "group": "Example Use Cases",
             "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/settings",
-              "essentials/navigation",
-              "essentials/reusable-snippets"
+              "use-cases/extract-id-information-for-verification",
+              "use-cases/structured-invoice-data",
+              "use-cases/limitless-possibilities"
             ]
           }
         ]
@@ -96,6 +93,12 @@
     "socials": {
       "x": "https://x.com/expenseai",
       "linkedin": "https://linkedin.com/company/app-expense-ai"
+    }
+  },
+  "seo": {
+    "metatags": {
+      "description": "API Documentation to Turn Unstructured Data Into Structured Intelligence",
+      "og:image": "/images/light-flora-cover-image.png"
     }
   }
 }
