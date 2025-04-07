@@ -94,11 +94,5 @@
       "x": "https://x.com/expenseai",
       "linkedin": "https://linkedin.com/company/app-expense-ai"
     }
-  },
-  "seo": {
-    "metatags": {
-      "description": "API Documentation to Turn Unstructured Data Into Structured Intelligence",
-      "og:image": "/images/light-flora-cover-image.png"
-    }
   }
 }
