@@ -1,0 +1,87 @@
+---
+title: "Get Extraction"
+api: "GET /extractions/{id}"
+description: "Retrieve a specific extraction by its ID"
+---
+
+This endpoint retrieves a specific extraction using its unique identifier.
+
+### Path Parameters
+
+<ParamField path="id" type="string" required>
+  The unique identifier of the extraction to retrieve
+</ParamField>
+
+### Response
+
+<ResponseField name="status" type="boolean">
+  Indicates if the request was successful
+</ResponseField>
+
+<ResponseField name="message" type="string">
+  A message describing the result of the operation
+</ResponseField>
+
+<ResponseField name="data" type="object">
+  The extraction details
+  <Expandable title="Extraction Object">
+    <ResponseField name="id" type="string">
+      Unique identifier for the extraction
+    </ResponseField>
+    <ResponseField name="schemaId" type="string">
+      ID of the schema used for extraction
+    </ResponseField>
+    <ResponseField name="source" type="object">
+      Details about the source content
+      <Expandable title="Source Object">
+        <ResponseField name="type" type="string">
+          Type of source (e.g., "pdf", "image", "text", "url")
+        </ResponseField>
+        <ResponseField name="content" type="string">
+          The source content or URL
+        </ResponseField>
+      </Expandable>
+    </ResponseField>
+    <ResponseField name="result" type="object">
+      The extracted data formatted according to the schema
+    </ResponseField>
+    <ResponseField name="status" type="string">
+      Current status of the extraction (e.g., "completed", "processing", "failed")
+    </ResponseField>
+    <ResponseField name="createdAt" type="string">
+      Timestamp when the extraction was created
+    </ResponseField>
+  </Expandable>
+</ResponseField>
+
+<RequestExample>
+```bash
+curl --request GET \
+  --url https://api.flora.withflora.ai/extractions/5f9b2c1a-3e5d-4f8a-b9c2-1a3e5d4f8ab9 \
+  --header 'Authorization: Bearer <your_token>'
+```
+</RequestExample>
+
+<ResponseExample>
+```json
+{
+  "status": true,
+  "message": "Extraction retrieved successfully",
+  "data": {
+    "id": "5f9b2c1a-3e5d-4f8a-b9c2-1a3e5d4f8ab9",
+    "schemaId": "00f9190e-9a4a-4e08-ba00-f888437ed3c4",
+    "source": {
+      "type": "url",
+      "content": "https://example.com/news/article"
+    },
+    "result": {
+      "title": "Breaking News: Major Scientific Discovery",
+      "summary": "Scientists have made a groundbreaking discovery...",
+      "link": "https://example.com/full-article"
+    },
+    "status": "completed",
+    "createdAt": "2025-03-20T16:42:31.163+00:00"
+  }
+}
+```
+</ResponseExample>

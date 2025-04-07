@@ -1,0 +1,59 @@
+---
+title: "Delete Extraction"
+description: "Delete an existing extraction"
+openapi: "DELETE /extractions/{id}"
+---
+
+# Delete Extraction
+
+Delete an extraction by its ID. This action cannot be undone.
+
+## API Request
+
+```bash
+DELETE https://api.withflora.io/v1/extractions/{id}
+```
+
+## Headers
+
+<ParamField header="Authorization" required>
+  Bearer YOUR_FLORA_API_KEY
+</ParamField>
+
+## Path Parameters
+
+<ParamField path="id" type="string" required>
+  The unique identifier of the extraction to delete
+</ParamField>
+
+## Response
+
+<ResponseField name="status" type="boolean">
+  Indicates if the request was successful
+</ResponseField>
+
+<ResponseField name="message" type="string">
+  A message describing the result
+</ResponseField>
+
+<ResponseField name="data" type="object">
+  Empty object indicating successful deletion
+</ResponseField>
+
+<RequestExample>
+```bash
+curl --request DELETE \
+  --url 'https://api.withflora.io/v1/extractions/4a81beae-3737-4a49-aa4d-466011527a6e' \
+  --header 'Authorization: Bearer YOUR_FLORA_API_KEY'
+```
+</RequestExample>
+
+<ResponseExample>
+```json
+{
+  "status": true,
+  "message": "Extraction deleted successfully",
+  "data": {}
+}
+```
+</ResponseExample>

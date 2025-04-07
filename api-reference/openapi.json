@@ -8,794 +8,11 @@
   },
   "servers": [
     {
-      "url": "https://withflora.io/v1"
+      "url": "https://api.withflora.io/v1"
     }
   ],
   "paths": {
     "/schemas": {
-      "get": {
-        "tags": [
-          "Schemas"
-        ],
-        "summary": "list",
-        "description": "list",
-        "operationId": "list",
-        "responses": {
-          "200": {
-            "description": "200",
-            "headers": {
-              "Connection": {
-                "schema": {
-                  "type": "string",
-                  "example": "keep-alive"
-                }
-              },
-              "Date": {
-                "schema": {
-                  "type": "string",
-                  "example": "Thu, 20 Mar 2025 15:37:55 GMT"
-                }
-              },
-              "Keep-Alive": {
-                "schema": {
-                  "type": "string",
-                  "example": "timeout=5"
-                }
-              },
-              "content-length": {
-                "schema": {
-                  "type": "string",
-                  "example": "3611"
-                }
-              },
-              "x-request-id": {
-                "schema": {
-                  "type": "string",
-                  "example": "bxdnv10k178qpnp0gchtjzb6"
-                }
-              }
-            },
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "data": {
-                      "type": "object",
-                      "properties": {
-                        "data": {
-                          "type": "array",
-                          "items": {
-                            "type": "object",
-                            "properties": {
-                              "createdAt": {
-                                "type": "string",
-                                "example": "2025-03-17T12:04:21.403+00:00"
-                              },
-                              "description": {
-                                "nullable": true,
-                                "example": null
-                              },
-                              "id": {
-                                "type": "string",
-                                "example": "c622793c-5e69-4670-bfa5-6e57b6fcbc74"
-                              },
-                              "name": {
-                                "type": "string",
-                                "example": "Product Object"
-                              },
-                              "structure": {
-                                "type": "object",
-                                "properties": {
-                                  "items": {
-                                    "type": "object",
-                                    "properties": {
-                                      "properties": {
-                                        "type": "object",
-                                        "properties": {
-                                          "link": {
-                                            "type": "object",
-                                            "properties": {
-                                              "describe": {
-                                                "type": "string",
-                                                "example": "URL to learn more"
-                                              },
-                                              "type": {
-                                                "type": "string",
-                                                "example": "string"
-                                              }
-                                            }
-                                          },
-                                          "summary": {
-                                            "type": "object",
-                                            "properties": {
-                                              "describe": {
-                                                "type": "string",
-                                                "example": "The news summary"
-                                              },
-                                              "type": {
-                                                "type": "string",
-                                                "example": "string"
-                                              }
-                                            }
-                                          },
-                                          "title": {
-                                            "type": "object",
-                                            "properties": {
-                                              "describe": {
-                                                "type": "string",
-                                                "example": "The article title"
-                                              },
-                                              "type": {
-                                                "type": "string",
-                                                "example": "string"
-                                              }
-                                            }
-                                          }
-                                        }
-                                      },
-                                      "type": {
-                                        "type": "string",
-                                        "example": "object"
-                                      }
-                                    }
-                                  },
-                                  "properties": {
-                                    "type": "object",
-                                    "properties": {
-                                      "amount": {
-                                        "type": "object",
-                                        "properties": {
-                                          "describe": {
-                                            "type": "string",
-                                            "example": "Total amount of the purcahsed items"
-                                          },
-                                          "required": {
-                                            "type": "boolean",
-                                            "example": true
-                                          },
-                                          "type": {
-                                            "type": "string",
-                                            "example": "number"
-                                          }
-                                        }
-                                      },
-                                      "currency": {
-                                        "type": "object",
-                                        "properties": {
-                                          "describe": {
-                                            "type": "string",
-                                            "example": "The ISO code of the currency e.g. NGN, USD"
-                                          },
-                                          "minLength": {
-                                            "type": "string",
-                                            "example": "3"
-                                          },
-                                          "required": {
-                                            "type": "boolean",
-                                            "example": true
-                                          },
-                                          "type": {
-                                            "type": "string",
-                                            "example": "string"
-                                          }
-                                        }
-                                      },
-                                      "products": {
-                                        "type": "object",
-                                        "properties": {
-                                          "items": {
-                                            "type": "object",
-                                            "properties": {
-                                              "properties": {
-                                                "type": "object",
-                                                "properties": {
-                                                  "amount": {
-                                                    "type": "object",
-                                                    "properties": {
-                                                      "describe": {
-                                                        "type": "string",
-                                                        "example": "Price the product costs"
-                                                      },
-                                                      "type": {
-                                                        "type": "string",
-                                                        "example": "number"
-                                                      }
-                                                    }
-                                                  },
-                                                  "name": {
-                                                    "type": "object",
-                                                    "properties": {
-                                                      "describe": {
-                                                        "type": "string",
-                                                        "example": "Name of the product"
-                                                      },
-                                                      "type": {
-                                                        "type": "string",
-                                                        "example": "string"
-                                                      }
-                                                    }
-                                                  },
-                                                  "quantity": {
-                                                    "type": "object",
-                                                    "properties": {
-                                                      "describe": {
-                                                        "type": "string",
-                                                        "example": "Qunatity of the purcahsed items"
-                                                      },
-                                                      "type": {
-                                                        "type": "string",
-                                                        "example": "number"
-                                                      }
-                                                    }
-                                                  }
-                                                }
-                                              },
-                                              "type": {
-                                                "type": "string",
-                                                "example": "object"
-                                              }
-                                            }
-                                          },
-                                          "type": {
-                                            "type": "string",
-                                            "example": "array"
-                                          }
-                                        }
-                                      },
-                                      "storeName": {
-                                        "type": "object",
-                                        "properties": {
-                                          "describe": {
-                                            "type": "string",
-                                            "example": "Name of the store"
-                                          },
-                                          "required": {
-                                            "type": "boolean",
-                                            "example": true
-                                          },
-                                          "type": {
-                                            "type": "string",
-                                            "example": "string"
-                                          }
-                                        }
-                                      }
-                                    }
-                                  },
-                                  "required": {
-                                    "type": "boolean",
-                                    "example": true
-                                  },
-                                  "type": {
-                                    "type": "string",
-                                    "example": "object"
-                                  }
-                                }
-                              }
-                            }
-                          },
-                          "example": [
-                            {
-                              "createdAt": "2025-03-17T12:04:21.403+00:00",
-                              "description": null,
-                              "id": "c622793c-5e69-4670-bfa5-6e57b6fcbc74",
-                              "name": "Product Object",
-                              "structure": {
-                                "properties": {
-                                  "amount": {
-                                    "describe": "Total amount of the purcahsed items",
-                                    "required": true,
-                                    "type": "number"
-                                  },
-                                  "currency": {
-                                    "describe": "The ISO code of the currency e.g. NGN, USD",
-                                    "minLength": "3",
-                                    "required": true,
-                                    "type": "string"
-                                  },
-                                  "products": {
-                                    "items": {
-                                      "properties": {
-                                        "amount": {
-                                          "describe": "Price the product costs",
-                                          "type": "number"
-                                        },
-                                        "name": {
-                                          "describe": "Name of the product",
-                                          "type": "string"
-                                        },
-                                        "quantity": {
-                                          "describe": "Qunatity of the purcahsed items",
-                                          "type": "number"
-                                        }
-                                      },
-                                      "type": "object"
-                                    },
-                                    "type": "array"
-                                  },
-                                  "storeName": {
-                                    "describe": "Name of the store",
-                                    "required": true,
-                                    "type": "string"
-                                  }
-                                },
-                                "required": true,
-                                "type": "object"
-                              }
-                            },
-                            {
-                              "createdAt": "2025-03-18T01:37:59.958+00:00",
-                              "description": null,
-                              "id": "7609f366-e693-4fba-b59d-7d31d6496999",
-                              "name": "Product Object",
-                              "structure": {
-                                "properties": {
-                                  "amount": {
-                                    "describe": "Total amount of the purcahsed items",
-                                    "required": true,
-                                    "type": "number"
-                                  },
-                                  "currency": {
-                                    "describe": "The ISO code of the currency e.g. NGN, USD",
-                                    "minLength": "3",
-                                    "required": true,
-                                    "type": "string"
-                                  },
-                                  "products": {
-                                    "items": {
-                                      "properties": {
-                                        "amount": {
-                                          "describe": "Price the product costs",
-                                          "type": "number"
-                                        },
-                                        "name": {
-                                          "describe": "Name of the product",
-                                          "type": "string"
-                                        },
-                                        "quantity": {
-                                          "describe": "Qunatity of the purcahsed items",
-                                          "type": "number"
-                                        }
-                                      },
-                                      "type": "object"
-                                    },
-                                    "type": "array"
-                                  },
-                                  "storeName": {
-                                    "describe": "Name of the store",
-                                    "required": true,
-                                    "type": "string"
-                                  }
-                                },
-                                "required": true,
-                                "type": "object"
-                              }
-                            },
-                            {
-                              "createdAt": "2025-03-20T13:03:07.854+00:00",
-                              "description": null,
-                              "id": "ec9cb821-6f69-4605-a7fc-0858667eb534",
-                              "name": "Product Object",
-                              "structure": {
-                                "properties": {
-                                  "amount": {
-                                    "describe": "Total amount of the purcahsed items",
-                                    "required": true,
-                                    "type": "number"
-                                  },
-                                  "currency": {
-                                    "describe": "The ISO code of the currency e.g. NGN, USD",
-                                    "minLength": "3",
-                                    "required": true,
-                                    "type": "string"
-                                  },
-                                  "products": {
-                                    "items": {
-                                      "properties": {
-                                        "amount": {
-                                          "describe": "Price the product costs",
-                                          "type": "number"
-                                        },
-                                        "name": {
-                                          "describe": "Name of the product",
-                                          "type": "string"
-                                        },
-                                        "quantity": {
-                                          "describe": "Qunatity of the purcahsed items",
-                                          "type": "number"
-                                        }
-                                      },
-                                      "type": "object"
-                                    },
-                                    "type": "array"
-                                  },
-                                  "storeName": {
-                                    "describe": "Name of the store",
-                                    "required": true,
-                                    "type": "string"
-                                  }
-                                },
-                                "required": true,
-                                "type": "object"
-                              }
-                            },
-                            {
-                              "createdAt": "2025-03-20T15:33:48.013+00:00",
-                              "description": null,
-                              "id": "b4a30753-80cb-42c1-b556-ba59e0592a12",
-                              "name": "Product Object",
-                              "structure": {
-                                "properties": {
-                                  "amount": {
-                                    "describe": "Total amount of the purcahsed items",
-                                    "required": true,
-                                    "type": "number"
-                                  },
-                                  "currency": {
-                                    "describe": "The ISO code of the currency e.g. NGN, USD",
-                                    "minLength": "3",
-                                    "required": true,
-                                    "type": "string"
-                                  },
-                                  "products": {
-                                    "items": {
-                                      "properties": {
-                                        "amount": {
-                                          "describe": "Price the product costs",
-                                          "type": "number"
-                                        },
-                                        "name": {
-                                          "describe": "Name of the product",
-                                          "type": "string"
-                                        },
-                                        "quantity": {
-                                          "describe": "Qunatity of the purcahsed items",
-                                          "type": "number"
-                                        }
-                                      },
-                                      "type": "object"
-                                    },
-                                    "type": "array"
-                                  },
-                                  "storeName": {
-                                    "describe": "Name of the store",
-                                    "required": true,
-                                    "type": "string"
-                                  }
-                                },
-                                "required": true,
-                                "type": "object"
-                              }
-                            },
-                            {
-                              "createdAt": "2025-03-20T15:37:16.163+00:00",
-                              "description": null,
-                              "id": "00f9190e-9a4a-4e08-ba00-f888437ed3c4",
-                              "name": "News Articles",
-                              "structure": {
-                                "items": {
-                                  "properties": {
-                                    "link": {
-                                      "describe": "URL to learn more",
-                                      "type": "string"
-                                    },
-                                    "summary": {
-                                      "describe": "The news summary",
-                                      "type": "string"
-                                    },
-                                    "title": {
-                                      "describe": "The article title",
-                                      "type": "string"
-                                    }
-                                  },
-                                  "type": "object"
-                                },
-                                "required": true,
-                                "type": "array"
-                              }
-                            }
-                          ]
-                        },
-                        "meta": {
-                          "type": "object",
-                          "properties": {
-                            "currentPage": {
-                              "type": "number",
-                              "example": 1
-                            },
-                            "firstPage": {
-                              "type": "number",
-                              "example": 1
-                            },
-                            "firstPageUrl": {
-                              "type": "string",
-                              "example": "/?page=1"
-                            },
-                            "lastPage": {
-                              "type": "number",
-                              "example": 1
-                            },
-                            "lastPageUrl": {
-                              "type": "string",
-                              "example": "/?page=1"
-                            },
-                            "nextPageUrl": {
-                              "nullable": true,
-                              "example": null
-                            },
-                            "perPage": {
-                              "type": "number",
-                              "example": 10
-                            },
-                            "previousPageUrl": {
-                              "nullable": true,
-                              "example": null
-                            },
-                            "total": {
-                              "type": "number",
-                              "example": 5
-                            }
-                          }
-                        }
-                      }
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Schemas fetched successfully"
-                    },
-                    "status": {
-                      "type": "boolean",
-                      "example": true
-                    }
-                  }
-                },
-                "examples": {
-                  "200": {
-                    "value": {
-                      "data": {
-                        "data": [
-                          {
-                            "createdAt": "2025-03-17T12:04:21.403+00:00",
-                            "description": null,
-                            "id": "c622793c-5e69-4670-bfa5-6e57b6fcbc74",
-                            "name": "Product Object",
-                            "structure": {
-                              "properties": {
-                                "amount": {
-                                  "describe": "Total amount of the purcahsed items",
-                                  "required": true,
-                                  "type": "number"
-                                },
-                                "currency": {
-                                  "describe": "The ISO code of the currency e.g. NGN, USD",
-                                  "minLength": "3",
-                                  "required": true,
-                                  "type": "string"
-                                },
-                                "products": {
-                                  "items": {
-                                    "properties": {
-                                      "amount": {
-                                        "describe": "Price the product costs",
-                                        "type": "number"
-                                      },
-                                      "name": {
-                                        "describe": "Name of the product",
-                                        "type": "string"
-                                      },
-                                      "quantity": {
-                                        "describe": "Qunatity of the purcahsed items",
-                                        "type": "number"
-                                      }
-                                    },
-                                    "type": "object"
-                                  },
-                                  "type": "array"
-                                },
-                                "storeName": {
-                                  "describe": "Name of the store",
-                                  "required": true,
-                                  "type": "string"
-                                }
-                              },
-                              "required": true,
-                              "type": "object"
-                            }
-                          },
-                          {
-                            "createdAt": "2025-03-18T01:37:59.958+00:00",
-                            "description": null,
-                            "id": "7609f366-e693-4fba-b59d-7d31d6496999",
-                            "name": "Product Object",
-                            "structure": {
-                              "properties": {
-                                "amount": {
-                                  "describe": "Total amount of the purcahsed items",
-                                  "required": true,
-                                  "type": "number"
-                                },
-                                "currency": {
-                                  "describe": "The ISO code of the currency e.g. NGN, USD",
-                                  "minLength": "3",
-                                  "required": true,
-                                  "type": "string"
-                                },
-                                "products": {
-                                  "items": {
-                                    "properties": {
-                                      "amount": {
-                                        "describe": "Price the product costs",
-                                        "type": "number"
-                                      },
-                                      "name": {
-                                        "describe": "Name of the product",
-                                        "type": "string"
-                                      },
-                                      "quantity": {
-                                        "describe": "Qunatity of the purcahsed items",
-                                        "type": "number"
-                                      }
-                                    },
-                                    "type": "object"
-                                  },
-                                  "type": "array"
-                                },
-                                "storeName": {
-                                  "describe": "Name of the store",
-                                  "required": true,
-                                  "type": "string"
-                                }
-                              },
-                              "required": true,
-                              "type": "object"
-                            }
-                          },
-                          {
-                            "createdAt": "2025-03-20T13:03:07.854+00:00",
-                            "description": null,
-                            "id": "ec9cb821-6f69-4605-a7fc-0858667eb534",
-                            "name": "Product Object",
-                            "structure": {
-                              "properties": {
-                                "amount": {
-                                  "describe": "Total amount of the purcahsed items",
-                                  "required": true,
-                                  "type": "number"
-                                },
-                                "currency": {
-                                  "describe": "The ISO code of the currency e.g. NGN, USD",
-                                  "minLength": "3",
-                                  "required": true,
-                                  "type": "string"
-                                },
-                                "products": {
-                                  "items": {
-                                    "properties": {
-                                      "amount": {
-                                        "describe": "Price the product costs",
-                                        "type": "number"
-                                      },
-                                      "name": {
-                                        "describe": "Name of the product",
-                                        "type": "string"
-                                      },
-                                      "quantity": {
-                                        "describe": "Qunatity of the purcahsed items",
-                                        "type": "number"
-                                      }
-                                    },
-                                    "type": "object"
-                                  },
-                                  "type": "array"
-                                },
-                                "storeName": {
-                                  "describe": "Name of the store",
-                                  "required": true,
-                                  "type": "string"
-                                }
-                              },
-                              "required": true,
-                              "type": "object"
-                            }
-                          },
-                          {
-                            "createdAt": "2025-03-20T15:33:48.013+00:00",
-                            "description": null,
-                            "id": "b4a30753-80cb-42c1-b556-ba59e0592a12",
-                            "name": "Product Object",
-                            "structure": {
-                              "properties": {
-                                "amount": {
-                                  "describe": "Total amount of the purcahsed items",
-                                  "required": true,
-                                  "type": "number"
-                                },
-                                "currency": {
-                                  "describe": "The ISO code of the currency e.g. NGN, USD",
-                                  "minLength": "3",
-                                  "required": true,
-                                  "type": "string"
-                                },
-                                "products": {
-                                  "items": {
-                                    "properties": {
-                                      "amount": {
-                                        "describe": "Price the product costs",
-                                        "type": "number"
-                                      },
-                                      "name": {
-                                        "describe": "Name of the product",
-                                        "type": "string"
-                                      },
-                                      "quantity": {
-                                        "describe": "Qunatity of the purcahsed items",
-                                        "type": "number"
-                                      }
-                                    },
-                                    "type": "object"
-                                  },
-                                  "type": "array"
-                                },
-                                "storeName": {
-                                  "describe": "Name of the store",
-                                  "required": true,
-                                  "type": "string"
-                                }
-                              },
-                              "required": true,
-                              "type": "object"
-                            }
-                          },
-                          {
-                            "createdAt": "2025-03-20T15:37:16.163+00:00",
-                            "description": null,
-                            "id": "00f9190e-9a4a-4e08-ba00-f888437ed3c4",
-                            "name": "News Articles",
-                            "structure": {
-                              "items": {
-                                "properties": {
-                                  "link": {
-                                    "describe": "URL to learn more",
-                                    "type": "string"
-                                  },
-                                  "summary": {
-                                    "describe": "The news summary",
-                                    "type": "string"
-                                  },
-                                  "title": {
-                                    "describe": "The article title",
-                                    "type": "string"
-                                  }
-                                },
-                                "type": "object"
-                              },
-                              "required": true,
-                              "type": "array"
-                            }
-                          }
-                        ],
-                        "meta": {
-                          "currentPage": 1,
-                          "firstPage": 1,
-                          "firstPageUrl": "/?page=1",
-                          "lastPage": 1,
-                          "lastPageUrl": "/?page=1",
-                          "nextPageUrl": null,
-                          "perPage": 10,
-                          "previousPageUrl": null,
-                          "total": 5
-                        }
-                      },
-                      "message": "Schemas fetched successfully",
-                      "status": true
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
       "post": {
         "tags": [
           "Schemas"
@@ -1149,6 +366,450 @@
                       ],
                       "message": "Validation failed",
                       "status": false
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Schemas"
+        ],
+        "parameters": [
+          {
+            "name": "startDate",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date",
+              "example": "2025-03-01"
+            }
+          },
+          {
+            "name": "endDate",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date",
+              "example": "2025-03-25"
+            }
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "description": "Search schemas by name",
+              "example": "news"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "example": 1
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "example": 5
+            }
+          }
+        ],
+        "summary": "list",
+        "description": "list",
+        "operationId": "list",
+        "responses": {
+          "200": {
+            "description": "200",
+            "headers": {
+              "Connection": {
+                "schema": {
+                  "type": "string",
+                  "example": "keep-alive"
+                }
+              },
+              "Date": {
+                "schema": {
+                  "type": "string",
+                  "example": "Thu, 20 Mar 2025 15:37:55 GMT"
+                }
+              },
+              "Keep-Alive": {
+                "schema": {
+                  "type": "string",
+                  "example": "timeout=5"
+                }
+              },
+              "content-length": {
+                "schema": {
+                  "type": "string",
+                  "example": "3611"
+                }
+              },
+              "x-request-id": {
+                "schema": {
+                  "type": "string",
+                  "example": "bxdnv10k178qpnp0gchtjzb6"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "data": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "createdAt": {
+                                "type": "string",
+                                "example": "2025-03-17T12:04:21.403+00:00"
+                              },
+                              "description": {
+                                "nullable": true,
+                                "example": null
+                              },
+                              "id": {
+                                "type": "string",
+                                "example": "c622793c-5e69-4670-bfa5-6e57b6fcbc74"
+                              },
+                              "name": {
+                                "type": "string",
+                                "example": "Product Object"
+                              },
+                              "structure": {
+                                "type": "object",
+                                "properties": {
+                                  "items": {
+                                    "type": "object",
+                                    "properties": {
+                                      "properties": {
+                                        "type": "object",
+                                        "properties": {
+                                          "link": {
+                                            "type": "object",
+                                            "properties": {
+                                              "describe": {
+                                                "type": "string",
+                                                "example": "URL to learn more"
+                                              },
+                                              "type": {
+                                                "type": "string",
+                                                "example": "string"
+                                              }
+                                            }
+                                          },
+                                          "summary": {
+                                            "type": "object",
+                                            "properties": {
+                                              "describe": {
+                                                "type": "string",
+                                                "example": "The news summary"
+                                              },
+                                              "type": {
+                                                "type": "string",
+                                                "example": "string"
+                                              }
+                                            }
+                                          },
+                                          "title": {
+                                            "type": "object",
+                                            "properties": {
+                                              "describe": {
+                                                "type": "string",
+                                                "example": "The article title"
+                                              },
+                                              "type": {
+                                                "type": "string",
+                                                "example": "string"
+                                              }
+                                            }
+                                          }
+                                        }
+                                      },
+                                      "type": {
+                                        "type": "string",
+                                        "example": "object"
+                                      }
+                                    }
+                                  },
+                                  "properties": {
+                                    "type": "object",
+                                    "properties": {
+                                      "amount": {
+                                        "type": "object",
+                                        "properties": {
+                                          "describe": {
+                                            "type": "string",
+                                            "example": "Total amount of the purcahsed items"
+                                          },
+                                          "required": {
+                                            "type": "boolean",
+                                            "example": true
+                                          },
+                                          "type": {
+                                            "type": "string",
+                                            "example": "number"
+                                          }
+                                        }
+                                      },
+                                      "currency": {
+                                        "type": "object",
+                                        "properties": {
+                                          "describe": {
+                                            "type": "string",
+                                            "example": "The ISO code of the currency e.g. NGN, USD"
+                                          },
+                                          "minLength": {
+                                            "type": "string",
+                                            "example": "3"
+                                          },
+                                          "required": {
+                                            "type": "boolean",
+                                            "example": true
+                                          },
+                                          "type": {
+                                            "type": "string",
+                                            "example": "string"
+                                          }
+                                        }
+                                      },
+                                      "products": {
+                                        "type": "object",
+                                        "properties": {
+                                          "items": {
+                                            "type": "object",
+                                            "properties": {
+                                              "properties": {
+                                                "type": "object",
+                                                "properties": {
+                                                  "amount": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                      "describe": {
+                                                        "type": "string",
+                                                        "example": "Price the product costs"
+                                                      },
+                                                      "type": {
+                                                        "type": "string",
+                                                        "example": "number"
+                                                      }
+                                                    }
+                                                  },
+                                                  "name": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                      "describe": {
+                                                        "type": "string",
+                                                        "example": "Name of the product"
+                                                      },
+                                                      "type": {
+                                                        "type": "string",
+                                                        "example": "string"
+                                                      }
+                                                    }
+                                                  },
+                                                  "quantity": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                      "describe": {
+                                                        "type": "string",
+                                                        "example": "Qunatity of the purcahsed items"
+                                                      },
+                                                      "type": {
+                                                        "type": "string",
+                                                        "example": "number"
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              },
+                                              "type": {
+                                                "type": "string",
+                                                "example": "object"
+                                              }
+                                            }
+                                          },
+                                          "type": {
+                                            "type": "string",
+                                            "example": "array"
+                                          }
+                                        }
+                                      },
+                                      "storeName": {
+                                        "type": "object",
+                                        "properties": {
+                                          "describe": {
+                                            "type": "string",
+                                            "example": "Name of the store"
+                                          },
+                                          "required": {
+                                            "type": "boolean",
+                                            "example": true
+                                          },
+                                          "type": {
+                                            "type": "string",
+                                            "example": "string"
+                                          }
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "required": {
+                                    "type": "boolean",
+                                    "example": true
+                                  },
+                                  "type": {
+                                    "type": "string",
+                                    "example": "object"
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "example": [
+                            {
+                              "createdAt": "2025-03-20T15:37:16.163+00:00",
+                              "description": null,
+                              "id": "00f9190e-9a4a-4e08-ba00-f888437ed3c4",
+                              "name": "News Articles",
+                              "structure": {
+                                "items": {
+                                  "properties": {
+                                    "link": {
+                                      "describe": "URL to learn more",
+                                      "type": "string"
+                                    },
+                                    "summary": {
+                                      "describe": "The news summary",
+                                      "type": "string"
+                                    },
+                                    "title": {
+                                      "describe": "The article title",
+                                      "type": "string"
+                                    }
+                                  },
+                                  "type": "object"
+                                },
+                                "required": true,
+                                "type": "array"
+                              }
+                            }
+                          ]
+                        },
+                        "meta": {
+                          "type": "object",
+                          "properties": {
+                            "currentPage": {
+                              "type": "number",
+                              "example": 1
+                            },
+                            "firstPage": {
+                              "type": "number",
+                              "example": 1
+                            },
+                            "firstPageUrl": {
+                              "type": "string",
+                              "example": "/?page=1"
+                            },
+                            "lastPage": {
+                              "type": "number",
+                              "example": 1
+                            },
+                            "lastPageUrl": {
+                              "type": "string",
+                              "example": "/?page=1"
+                            },
+                            "nextPageUrl": {
+                              "nullable": true,
+                              "example": null
+                            },
+                            "perPage": {
+                              "type": "number",
+                              "example": 10
+                            },
+                            "previousPageUrl": {
+                              "nullable": true,
+                              "example": null
+                            },
+                            "total": {
+                              "type": "number",
+                              "example": 5
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Schemas fetched successfully"
+                    },
+                    "status": {
+                      "type": "boolean",
+                      "example": true
+                    }
+                  }
+                },
+                "examples": {
+                  "200": {
+                    "value": {
+                      "data": {
+                        "data": [
+                         {
+                            "createdAt": "2025-03-20T15:37:16.163+00:00",
+                            "description": null,
+                            "id": "00f9190e-9a4a-4e08-ba00-f888437ed3c4",
+                            "name": "News Articles",
+                            "structure": {
+                              "items": {
+                                "properties": {
+                                  "link": {
+                                    "describe": "URL to learn more",
+                                    "type": "string"
+                                  },
+                                  "summary": {
+                                    "describe": "The news summary",
+                                    "type": "string"
+                                  },
+                                  "title": {
+                                    "describe": "The article title",
+                                    "type": "string"
+                                  }
+                                },
+                                "type": "object"
+                              },
+                              "required": true,
+                              "type": "array"
+                            }
+                          }
+                        ],
+                        "meta": {
+                          "currentPage": 1,
+                          "firstPage": 1,
+                          "firstPageUrl": "/?page=1",
+                          "lastPage": 1,
+                          "lastPageUrl": "/?page=1",
+                          "nextPageUrl": null,
+                          "perPage": 10,
+                          "previousPageUrl": null,
+                          "total": 5
+                        }
+                      },
+                      "message": "Schemas fetched successfully",
+                      "status": true
                     }
                   }
                 }
@@ -1682,10 +1343,46 @@
         "operationId": "list1",
         "parameters": [
           {
-            "name": "",
+            "name": "startDate",
             "in": "query",
             "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "date",
+              "example": "2025-03-01"
+            }
+          },
+          {
+            "name": "endDate",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date",
+              "example": "2025-03-25"
+            }
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "description": "Search extractions by schema name",
+              "example": "news"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "example": 1
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "example": 5
             }
           }
         ],
@@ -1837,31 +1534,6 @@
                                             "amount": 2340,
                                             "name": "Hollandia Evaporat",
                                             "quantity": 3
-                                          },
-                                          {
-                                            "amount": 2840,
-                                            "name": "Tesco Spaghetti 50",
-                                            "quantity": 2
-                                          },
-                                          {
-                                            "amount": 3750,
-                                            "name": "Ayoola Poundo Yar",
-                                            "quantity": 1
-                                          },
-                                          {
-                                            "amount": 5000,
-                                            "name": "Seedless Grape",
-                                            "quantity": 1
-                                          },
-                                          {
-                                            "amount": 1600,
-                                            "name": "Jendol Loaf Bread",
-                                            "quantity": 1
-                                          },
-                                          {
-                                            "amount": 3600,
-                                            "name": "Greenco Large Brow",
-                                            "quantity": 1
                                           }
                                         ]
                                       },
@@ -3272,25 +2944,26 @@
               "schema": {
                 "type": "object",
                 "properties": {
-                  "instruction": {
-                    "description": "Not required can be either gpt-4o or gpt-4o-mini",
-                    "type": "string",
-                    "example": ""
-                  },
                   "schema_id": {
-                    "description": "The schema ID",
+                    "description": "The schema ID. Create a schema first using the `POST /schemas` endpoint.",
                     "type": "string",
                     "example": "ec9cb821-6f69-4605-a7fc-0858667eb534"
+                  },
+                  "type": {
+                    "description": "The input type can be any of `text`, `image`, `pdf`, and `webpage`.",
+                    "type": "string",
+                    "example": "image"
+                  },
+                  "model": {
+                    "description": "Optional. Can be either 'gpt-4o' or 'gpt-4o-mini', we will use 'gpt-4o' by default",
+                    "type": "string",
+                    "enum": ["gpt-4o", "gpt-4o-mini"],
+                    "example": "gpt-4o"
                   },
                   "source": {
                     "description": "When type is:\nPDF - Pass a valid and accesible pdf url\n\nImage - Pass a valid and accesible image url\n\nWebpage - Pass a valid and accesible webpage url\n\nText - Text content to extract data from",
                     "type": "string",
                     "example": "https://8ddf98.jpg"
-                  },
-                  "type": {
-                    "description": "The input type can be any of text, image, pdf, and webpage.",
-                    "type": "string",
-                    "example": "text"
                   }
                 }
               }
@@ -3467,27 +3140,18 @@
                               },
                               "example": [
                                 {
-                                  "link": "https://techcabal.com/google-taara-lightbridge-starlink/",
                                   "summary": "Google’s Taara team is advancing internet connectivity with its laser-powered technology, providing a competitive alternative to Elon Musk’s Starlink. The technology aims to deliver internet services in less accessible regions by utilizing laser beams to transfer data, thereby offering a solution where traditional infrastructure is challenging or expensive.",
                                   "title": "Google's Taara Lightbridge takes on Starlink with laser-powered internet"
                                 },
                                 {
-                                  "link": "https://techcabal.com/article/baobab-nigeria-acquisition/",
                                   "summary": "Alitheia and Goodwell have achieved a successful exit from their investment in Baobab Nigeria, realizing a 3x return. The acquisition highlights a significant milestone in the fintech landscape of Nigeria, demonstrating substantial value creation and growth potential within the sector.",
                                   "title": "Baobab Nigeria acquisition delivers 3x return for Alitheia and Goodwell"
                                 },
                                 {
-                                  "link": "https://techcabal.com/news/exclusive-kenya-ride-hailing-apps-fail",
                                   "summary": "In Kenya, Uber and Bolt continue to dominate the ride-hailing market despite the emergence of over 2,500 competing apps. The drivers' union outlines challenges these apps face, including inadequate funding, high competition, and the need for robust operational infrastructure to attract both drivers and customers.",
                                   "title": "Over 2,500 ride-hailing apps have tried—and failed—to compete with Uber, Bolt – drivers’ union"
                                 },
                                 {
-                                  "link": "https://techcabal.com/newsletters/2025-techcabal-daily/",
-                                  "summary": "The latest edition of TechCabal Daily covers key topics in African tech, including a feature on Valu’s market listing. This newsletter continues to provide valuable insights and updates on the tech landscape across Africa.",
-                                  "title": "TechCabal Daily – A Valu-ed listing"
-                                },
-                                {
-                                  "link": "https://techcabal.com/acquisition/mysten-labs-fund-launch",
                                   "summary": "Mysten Labs’ co-founder has initiated a $1.3 million fund targeted at training African software engineers. This initiative underscores a commitment to enhancing technical skills across the continent, aiming to expand the talent pool and support the burgeoning tech ecosystem in Africa.",
                                   "title": "Mysten Labs co-founder launches $1.3 million fund to train African software engineers"
                                 }
@@ -3522,37 +3186,7 @@
                           "products": [
                             {
                               "amount": 1600,
-                              "name": "Jendol Chicken Pie",
-                              "quantity": 2
-                            },
-                            {
-                              "amount": 6200,
-                              "name": "Rose Carla Tissue",
-                              "quantity": 2
-                            },
-                            {
-                              "amount": 7800,
-                              "name": "Ctn Lasena Table",
-                              "quantity": 2
-                            },
-                            {
-                              "amount": 1700,
-                              "name": "Green & Red Apple",
-                              "quantity": 1
-                            },
-                            {
-                              "amount": 2150,
-                              "name": "Roll Nescafe Break",
-                              "quantity": 1
-                            },
-                            {
-                              "amount": 2340,
-                              "name": "Hollandia Evaporated Milk",
-                              "quantity": 3
-                            },
-                            {
-                              "amount": 2840,
-                              "name": "Tesco Spaghetti 500g",
+                              "name": "Chicken Pie",
                               "quantity": 2
                             },
                             {
@@ -3564,19 +3198,9 @@
                               "amount": 5000,
                               "name": "Seedless Grape",
                               "quantity": 1
-                            },
-                            {
-                              "amount": 1600,
-                              "name": "Jendol Loaf Bread",
-                              "quantity": 1
-                            },
-                            {
-                              "amount": 3600,
-                              "name": "Greenco Large Brown Egg",
-                              "quantity": 1
                             }
                           ],
-                          "storeName": "Jendol Superstores"
+                          "storeName": "XYZ Superstores"
                         },
                         "totalTokens": 1795
                       },

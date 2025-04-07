@@ -1,33 +1,104 @@
 ---
-title: 'Introduction'
-description: 'Example section for showcasing API endpoints'
+title: "Introduction"
+icon: "book-open-cover"
 ---
 
-<Note>
-  If you're not looking to build API reference documentation, you can delete
-  this section by removing the api-reference folder.
-</Note>
+Flora's RESTful API enables developers to seamlessly integrate structured data extraction capabilities into their applications.
 
-## Welcome
-
-There are two ways to build API documentation: [OpenAPI](https://mintlify.com/docs/api-playground/openapi/setup) and [MDX components](https://mintlify.com/docs/api-playground/mdx/configuration). For the starter kit, we are using the following OpenAPI specification.
-
-<Card
-  title="Plant Store Endpoints"
-  icon="leaf"
-  href="https://github.com/mintlify/starter/blob/main/api-reference/openapi.json"
->
-  View the OpenAPI specification file
-</Card>
+This documentation will guide you through the process of integrating Flora's API into your projects, covering everything from authentication to specific endpoint usage.
 
 ## Authentication
 
-All API endpoints are authenticated using Bearer tokens and picked up from the specification file.
+To access the Flora API, you'll need to include your API key in the request header:
+
+```bash
+Authorization: Bearer YOUR_FLORA_API_KEY
+```
+
+<Note>
+  Obtain your Flora API key by signing in to your [Flora
+  dashboard](https://withflora.io/api-keys) and navigating to the API Keys
+  section.
+</Note>
+
+## API Communication
+
+Flora API adheres to RESTful principles, using JSON for both request bodies and response data. The `Content-Type` header in responses is consistently set to `application/json`.
+
+### Response Structure
+
+Responses from Flora API follow a consistent structure:
 
 ```json
-"security": [
-  {
-    "bearerAuth": []
-  }
-]
+{
+    "status": true,
+    "message": "Operation successful",
+    "data": { ... }
+}
 ```
+
+For paginated responses, a `meta` object is included with pagination details:
+
+```json
+{
+    "status": true,
+    "message": "Data retrieved successfully",
+    "data": {
+        "meta": {
+            "total": 100,
+            "perPage": 10,
+            "currentPage": 1,
+            "lastPage": 10,
+            "firstPageUrl": "/?page=1",
+            "lastPageUrl": "/?page=10",
+            "nextPageUrl": "/?page=2",
+            "previousPageUrl": null
+        },
+        "data": [ ... ]
+    }
+}
+```
+
+### Error Handling
+
+Flora API uses HTTP status codes to indicate the outcome of requests. Additionally, the `status` field in the response body provides a boolean indicator of success or failure.
+
+#### Validation Errors (422)
+
+```json
+{
+  "status": false,
+  "errors": [
+    {
+      "field": "email",
+      "message": "A valid email address is required"
+    },
+    {
+      "field": "schema_id",
+      "message": "The provided schema ID is invalid"
+    }
+  ]
+}
+```
+
+#### Other Errors (401, 403, 500)
+
+```json
+{
+  "status": false,
+  "message": "An error occurred: [Error description]"
+}
+```
+
+### Rate Limiting
+
+To ensure fair usage, Flora API implements rate limiting. If you exceed the limit, you'll receive a 429 status code:
+
+```json
+{
+  "status": false,
+  "message": "Rate limit exceeded. Please retry after [time] seconds."
+}
+```
+
+By familiarizing yourself with these fundamentals, you'll be well-equipped to harness the full potential of Flora API in your projects. Explore the subsequent sections for detailed information on available endpoints and their usage.

@@ -1,0 +1,42 @@
+---
+title: Authentication
+description: "Learn how to obtain, use, and securely manage your Flora API key"
+icon: "lock"
+---
+
+# Authentication Guide
+
+To use the Flora API, you'll need to authenticate your requests using an API key. This guide will walk you through obtaining your API key, using it in your requests, and best practices for keeping it secure.
+
+## Obtaining Your API Key
+
+1. Sign in to your [Flora dashboard](https://withflora.io/dashboard).
+2. Navigate to the "API Keys" section.
+3. Click on "New API Key".
+4. Copy the generated key and store it securely. Note that you won't be able to view this key again.
+
+## Using Your API Key
+
+Include your API key in the `Authorization` header of your HTTP requests:
+
+```bash
+Authorization: Bearer YOUR_FLORA_API_KEY
+```
+
+Replace `YOUR_FLORA_API_KEY` with your actual API key.
+
+## Security Recommendations
+
+To keep your API key safe:
+
+1. **Never share your API key**: Keep it confidential and don't include it in public repositories or client-side code.
+
+2. **Use environment variables**: Store your API key as an environment variable rather than hardcoding it in your application.
+
+3. **Rotate keys regularly**: Generate new API keys periodically and update your applications accordingly.
+
+4. **Implement access controls**: Limit access to your API key to only those who absolutely need it.
+
+5. **Monitor usage**: Regularly review your API usage logs to detect any unauthorized access.
+
+By following these practices, you'll help ensure the security of your Flora API integration and protect your data.

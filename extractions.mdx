@@ -1,0 +1,42 @@
+---
+title: "Extractions"
+description: "Transform unstructured data into structured insights"
+icon: "sparkles"
+---
+
+Extractions are at the heart of Flora's AI-powered data processing capabilities. This endpoint allows you to convert unstructured information from various sources into structured, actionable data based on predefined schemas.
+
+## Key Features
+
+- **Multi-Source Support**: Extract data from `images`, `PDFs`, `text`, and `webpages`.
+- **Schema-Based Extraction**: Utilize custom schemas to define the structure of extracted data.
+- **Flexible AI Models**: Choose between different AI models for optimal performance.
+
+## Supported Types and Sources
+
+Flora supports the following types of unstructured data:
+
+- **Image**: Provide a valid and accessible image URL.
+- **PDF**: Supply a valid and accessible PDF URL.
+- **Text**: Directly input the text content to extract data from.
+- **Webpage**: Provide a valid and accessible webpage URL.
+
+<Note>
+  Flora only supports processing unstructured data **via URLs** and does not
+  provide file upload capabilities. Ensure your source files are hosted and
+  accessible via a public URL.
+</Note>
+
+## Workflow
+
+1. **Create a Schema**: Define the structure for your extracted data using the [Schemas](/api-reference/endpoint/create-schema) endpoint.
+2. **Initiate Extraction**: Send a request to the [Create Extraction](/api-reference/endpoint/create-extraction) endpoint with your source URL and schema.
+3. **Retrieve Results**: Once completed, access your structured data from the extraction response.
+
+## Best Practices
+
+- Ensure your schemas are well-defined to maximize extraction accuracy.
+- Utilize the optional `instruction` parameter to guide the AI in complex extractions.
+- Verify that your source URLs are publicly accessible and valid before submitting an extraction request.
+
+Leverage the power of Flora's Extractions API to unlock valuable insights from your unstructured data sources.

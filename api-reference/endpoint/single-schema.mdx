@@ -1,0 +1,83 @@
+---
+title: "Get Schema"
+api: "GET /schemas/{id}"
+description: "Retrieve a specific schema by its ID"
+---
+
+This endpoint retrieves a specific schema using its unique identifier.
+
+### Path Parameters
+
+<ParamField path="id" type="string" required>
+  The unique identifier of the schema to retrieve
+</ParamField>
+
+### Response
+
+<ResponseField name="status" type="boolean">
+  Indicates if the request was successful
+</ResponseField>
+
+<ResponseField name="message" type="string">
+  A message describing the result of the operation
+</ResponseField>
+
+<ResponseField name="data" type="object">
+  The schema details
+  <Expandable title="Schema Object">
+    <ResponseField name="id" type="string">
+      Unique identifier for the schema
+    </ResponseField>
+    <ResponseField name="name" type="string">
+      Name of the schema
+    </ResponseField>
+    <ResponseField name="structure" type="object">
+      The JSON structure defining the schema format
+    </ResponseField>
+    <ResponseField name="createdAt" type="string">
+      Timestamp when the schema was created
+    </ResponseField>
+  </Expandable>
+</ResponseField>
+
+<RequestExample>
+```bash
+curl --request GET \
+  --url https://api.flora.withflora.ai/schemas/00f9190e-9a4a-4e08-ba00-f888437ed3c4 \
+  --header 'Authorization: Bearer <your_token>'
+```
+</RequestExample>
+
+<ResponseExample>
+```json
+{
+  "status": true,
+  "message": "Schema retrieved successfully",
+  "data": {
+    "id": "00f9190e-9a4a-4e08-ba00-f888437ed3c4",
+    "name": "News Articles",
+    "structure": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "describe": "The article title"
+          },
+          "summary": {
+            "type": "string",
+            "describe": "The news summary"
+          },
+          "link": {
+            "type": "string",
+            "describe": "URL to learn more"
+          }
+        }
+      }
+    },
+    "createdAt": "2025-03-20T15:37:16.163+00:00"
+  }
+}
+```
+</ResponseExample>

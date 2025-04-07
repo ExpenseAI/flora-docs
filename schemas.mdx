@@ -1,0 +1,115 @@
+---
+title: "Schemas"
+description: "Define structured data formats for information extraction"
+icon: "code"
+---
+
+The Schema Endpoint in Flora's API enables users to define structured data formats for extracting information from unstructured sources like `images`, `PDFs`, `text`, and `webpages`. This endpoint serves as the foundation for how extracted data is formatted and returned.
+
+## How It Works
+
+1. **Define Your Schema**: Create a JSON structure that outlines the fields and data types you want to extract.
+2. **Use in Extraction Requests**: Include the `schema_id` when submitting data for processing.
+3. **Receive Structured Results**: Flora extracts the information and returns it formatted according to your defined schema.
+
+## Creating a Valid Schema
+
+Developers have two options for creating a valid schema in Flora:
+
+1. **Schema Builder Tool**: For a visual, user-friendly experience, use our [Schema Builder](https://withflora.io/schema-builder). This intuitive tool allows you to construct your schema graphically, ensuring all requirements are met without needing to write JSON manually.
+
+2. **Manual JSON Creation**: For those who prefer direct JSON manipulation or need more complex schemas, follow the guidelines below to craft your schema structure.
+
+Whichever method you choose, ensure your schema adheres to Flora's requirements for optimal data extraction results.
+
+### Root Structure
+
+Your schema should be a valid JSON object with a `type` field set to either `"array"` or `"object"`.
+
+### Array Type Schemas
+
+For `"array"` type schemas:
+
+- Include an `items` field defining the structure of array elements.
+- The `items` field must be an object with its own `type` field (`"object"` or `"array"`).
+- For `"object"` type items, include a `properties` field defining the object's structure.
+- For nested `"array"` type items, include another `items` field.
+
+Example:
+
+```json
+{
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "title": {
+        "type": "string",
+        "description": "Article title"
+      },
+      "publishDate": {
+        "type": "string",
+        "description": "Publication date"
+      }
+    }
+  }
+}
+```
+
+### Object Type Schemas
+
+For `"object"` type schemas:
+
+- Include a `properties` field defining the object's structure.
+- Each property should specify its `type` and optionally include a `description`.
+
+Example:
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Full name of the person"
+    },
+    "age": {
+      "type": "number",
+      "description": "Age in years"
+    }
+  }
+}
+```
+
+### Required Fields
+
+Specify `required` property in the fields to indicate which fields are required:
+
+Example:
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "username": {
+      "type": "string",
+      "description": "User's unique identifier",
+      "required": true
+    },
+    "email": {
+      "type": "string",
+      "description": "User's email address",
+      "required": false
+    }
+  }
+}
+```
+
+### Best Practices
+
+- Use clear, descriptive field names.
+- Include `description` for each field to improve clarity.
+- Keep your schema focused and avoid unnecessary complexity.
+- Test your schema with sample data to ensure it captures all required information.
+
+By following these guidelines, you'll create robust schemas that effectively structure your extracted data, enhancing the power and flexibility of your Flora API integrations.
