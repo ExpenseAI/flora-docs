@@ -620,7 +620,6 @@
                           "example": [
                             {
                               "createdAt": "2025-03-20T15:37:16.163+00:00",
-                              "description": null,
                               "id": "00f9190e-9a4a-4e08-ba00-f888437ed3c4",
                               "name": "News Articles",
                               "structure": {
@@ -707,7 +706,6 @@
                         "data": [
                          {
                             "createdAt": "2025-03-20T15:37:16.163+00:00",
-                            "description": null,
                             "id": "00f9190e-9a4a-4e08-ba00-f888437ed3c4",
                             "name": "News Articles",
                             "structure": {
@@ -893,7 +891,6 @@
                     "value": {
                       "data": {
                         "createdAt": "2025-03-20T15:37:16.163+00:00",
-                        "description": null,
                         "id": "00f9190e-9a4a-4e08-ba00-f888437ed3c4",
                         "name": "News Articles",
                         "structure": {
@@ -1152,7 +1149,6 @@
                     "value": {
                       "data": {
                         "createdAt": "2025-03-20T15:37:16.163+00:00",
-                        "description": null,
                         "id": "00f9190e-9a4a-4e08-ba00-f888437ed3c4",
                         "name": "News Articles",
                         "structure": {
