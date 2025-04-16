@@ -1388,7 +1388,7 @@
                                   },
                                   "model": {
                                     "type": "string",
-                                    "example": "gpt-4o-search-preview"
+                                    "example": "gpt-4.1"
                                   },
                                   "schema_id": {
                                     "type": "string",
@@ -2830,8 +2830,8 @@
                   "model": {
                     "description": "Optional. Can be either 'gpt-4o' or 'gpt-4o-mini', we will use 'gpt-4o' by default",
                     "type": "string",
-                    "enum": ["gpt-4o", "gpt-4o-mini"],
-                    "example": "gpt-4o"
+                    "enum": ["gpt-4.1", "gpt-4.1-mini"],
+                    "example": "gpt-4.1"
                   },
                   "source": {
                     "description": "When type is:\nPDF - Pass a valid and accesible pdf url\n\nImage - Pass a valid and accesible image url\n\nWebpage - Pass a valid and accesible webpage url\n\nText - Text content to extract data from",
@@ -3706,7 +3706,7 @@
     },
     {
       "name": "Extractions",
-      "description": "The **Extractions Endpoint** in **Flora's API** enables users to extract structured data from unstructured sources (images, PDFs, text, webpages) by supplying a **valid URL** and linking it to a predefined schema.\n\n#### **Key Functionalities:**\n\n- **Initiate an Extraction:** Submit a source URL along with a `schema_id` for processing.\n    \n- **Retrieve Extracted Data:** Access structured data based on the provided schema.\n    \n- **List All Extractions:** View a history of extractions and their statuses.\n    \n- **Delete an Extraction:** Remove an extraction record when no longer needed.\n    \n\n#### **Usage Workflow:**\n\n1. **Define a Schema:** Use the `/schemas` endpoint to create a structured format.\n    \n2. **Submit an Extraction Request:** Provide:\n    \n    - `schema_id` (required) → ID of the schema to use.\n        \n    - `type` (required) → Input type (`image`, `pdf`, `text`, `webpage`).\n        \n    - `source` (required) → A **valid, accessible URL** pointing to the data.\n        \n    - `model` (optional) → Preferred AI model (`gpt-4o`, `gpt-4o-mini`).\n        \n    - `instruction` (optional) → Additional processing instructions.\n        \n3. **Receive Extracted Data:** The API processes the source and returns structured output based on the schema.\n    \n4. **Track Status (Optional):** Check request history and status if handling large volumes.\n    \n\n**Authentication:**  \n  \nRequires a valid API key via `Authorization: Bearer {token}`.\n\nThis endpoint provides **a seamless way to extract structured data from online sources**, automating workflows and eliminating manual data processing."
+      "description": "The **Extractions Endpoint** in **Flora's API** enables users to extract structured data from unstructured sources (images, PDFs, text, webpages) by supplying a **valid URL** and linking it to a predefined schema.\n\n#### **Key Functionalities:**\n\n- **Initiate an Extraction:** Submit a source URL along with a `schema_id` for processing.\n    \n- **Retrieve Extracted Data:** Access structured data based on the provided schema.\n    \n- **List All Extractions:** View a history of extractions and their statuses.\n    \n- **Delete an Extraction:** Remove an extraction record when no longer needed.\n    \n\n#### **Usage Workflow:**\n\n1. **Define a Schema:** Use the `/schemas` endpoint to create a structured format.\n    \n2. **Submit an Extraction Request:** Provide:\n    \n    - `schema_id` (required) → ID of the schema to use.\n        \n    - `type` (required) → Input type (`image`, `pdf`, `text`, `webpage`).\n        \n    - `source` (required) → A **valid, accessible URL** pointing to the data.\n        \n    - `model` (optional) → Preferred AI model (`gpt-4.1`, `gpt-4.1-mini`).\n        \n    - `instruction` (optional) → Additional processing instructions.\n        \n3. **Receive Extracted Data:** The API processes the source and returns structured output based on the schema.\n    \n4. **Track Status (Optional):** Check request history and status if handling large volumes.\n    \n\n**Authentication:**  \n  \nRequires a valid API key via `Authorization: Bearer {token}`.\n\nThis endpoint provides **a seamless way to extract structured data from online sources**, automating workflows and eliminating manual data processing."
     }
   ]
 }
